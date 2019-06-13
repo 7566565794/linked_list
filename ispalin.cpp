@@ -26,3 +26,5 @@ bool isPalindrome(Node *head)
     }
     return true;
 }
+//this program can also be done reversing a linked list so please make sure u are doing through that also
+// whenever u understood reversing linklist.
