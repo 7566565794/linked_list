@@ -1,32 +1,33 @@
-// function inserts the data in front of the list
-void insertAtBegining(struct node** headRef, int newData)
+void intersection(Node **head1, Node **head2,Node **head3)
 {
-    // Code here
-    
-        struct node *p=new node();
-         p->data=newData;
-        p->next=(*headRef);
-        (*headRef)=p;
-       
-}
-// function appends the data at the end of the list
-void insertAtEnd(struct node** headRef, int newData)
-{
-    // Code here
-    struct node *r;
-    struct node *s=new node();
-    r=*headRef;
-    if(*headRef==NULL){
-        insertAtBegining(headRef,newData);
-    }
-    else{
-        while(r->next!=NULL){
-            r=r->next;
+    Node *p=*head1;
+    Node *q=*head2;
+    while(p!=NULL && q!=NULL){
+        if(p->val==q->val){
+            // cout<<"hfhghhdhdghdghfhhdjhj";
+            Node *temp=new Node();
+            temp->val=p->val;
+            temp->next=NULL;
+            if(*head3==NULL){
+                *head3=temp;
+            }
+            else{
+                struct Node *prev=*head3;
+                while(prev->next!=NULL){
+                    prev=prev->next;
+                }
+                prev->next=temp;    
+                }
+             p=p->next;//u were making mistake here, u was increment it outside so both the conditions were not getting satisfied 
+             q=q->next;
         }
-        node *s=new node();
-        s->data=newData;
-        s->next=NULL;
-        r->next=s;
+        else if(p->val>q->val){
+                q=q->next;
+        }
+        else{
+                p=p->next;
+        }
+       
     }
-    
+   
 }
